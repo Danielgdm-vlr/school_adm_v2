@@ -8,20 +8,26 @@ import com.gdm.school_adm_v2.county.CountyConfig;
 import com.gdm.school_adm_v2.county.CountyService;
 import com.gdm.school_adm_v2.course.CourseConfig;
 import com.gdm.school_adm_v2.course.CourseService;
+import com.gdm.school_adm_v2.school.School;
 import com.gdm.school_adm_v2.school.SchoolConfig;
 import com.gdm.school_adm_v2.school.SchoolService;
 import com.gdm.school_adm_v2.school_school_year_teacher_courses_hours.SchoolSchoolYearTeacherCoursesHoursService;
+import com.gdm.school_adm_v2.school_year.SchoolYear;
 import com.gdm.school_adm_v2.school_year.SchoolYearConfig;
 import com.gdm.school_adm_v2.school_year.SchoolYearService;
 import com.gdm.school_adm_v2.teacher.TeacherConfig;
+import com.gdm.school_adm_v2.teacher.TeacherDTO;
 import com.gdm.school_adm_v2.teacher.TeacherService;
 import com.gdm.school_adm_v2.user.UserConfig;
 import com.gdm.school_adm_v2.user.UserService;
+import com.gdm.school_adm_v2.util.pdf.PDFTeachersReport;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 
-    // TODO: se creeaza parintele in clasa lui de config
+import java.util.List;
+
+// TODO: se creeaza parintele in clasa lui de config
     //  apoi se creeaza copilul in clasa lui de config
     //  cand se creeaza copilul, obiectul se salveaza in db continand obiectul parinte (child.setParent(parent))
 
@@ -68,6 +74,16 @@ public class DatabaseConfig {
                     courseService,
                     schoolSchoolYearTeacherCoursesHoursService
             );
+
+//            PDFTeachersReport pdfTeachersReport = new PDFTeachersReport();
+//            School school = schoolService.getById(1L);
+//            pdfTeachersReport.setSchool(school);
+//            SchoolYear schoolYear = schoolYearService.getByYears("2021-2022");
+//            List<TeacherDTO> teacherDTOs =
+//                    (List<TeacherDTO>) teacherService.getAllCoursesInSchoolInYear(
+//                            school.getId(), schoolYear.getYears());
+//            pdfTeachersReport.setTeacherDTOs(teacherDTOs);
+//            pdfTeachersReport.createPDF();
         };
     }
 }
